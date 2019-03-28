@@ -2,8 +2,8 @@ FROM registry.access.redhat.com/jboss-webserver-3/webserver31-tomcat7-openshift:
 
 
 #Copy jars SqlServer Drivers
-COPY jars/ /opt/webserver/lib/
-COPY jars/ /opt/webserver/lib/
+COPY jars/ojdbc6.jar /opt/webserver/lib/
+#COPY jars/ /opt/webserver/lib/
 
 #Conf Webserver JNDI
 COPY conf/server.xml /opt/webserver/conf/server.xml
