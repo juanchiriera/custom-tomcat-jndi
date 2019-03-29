@@ -7,5 +7,5 @@ COPY jars/ojdbc6.jar /opt/webserver/lib/
 
 #Conf Webserver JNDI
 COPY conf/server.xml /opt/webserver/conf/server.xml
-COPY conf/context.xml /opt/webserver/conf/server.xml
+COPY conf/context.xml /opt/webserver/conf/context.xml
 
