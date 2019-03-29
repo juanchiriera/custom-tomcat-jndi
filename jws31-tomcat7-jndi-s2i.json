@@ -10,10 +10,10 @@
             "version": "1.4.17",
             "openshift.io/display-name": "Itau tomcat7 jndi s2i"
         },
-        "name": "itau-tomcat7-jndi-s2i-2"
+        "name": "itau-tomcat7-jndi-s2i"
     },
     "labels": {
-        "template": "itau-tomcat7-jndi-s2i-2",
+        "template": "itau-tomcat7-jndi-s2i",
         "xpaas": "1.4.17"
     },
     "message": "A new JWS application for Apache Tomcat 7 (using ) has been created in your project. The username/password for administering your JWS is ${JWS_ADMIN_USERNAME}/${JWS_ADMIN_PASSWORD}. For accessing the PostgreSQL database \"${DB_DATABASE}\" use the credentials ${DB_USERNAME}/${DB_PASSWORD}. Please be sure to create the secret named \"${JWS_HTTPS_SECRET}\" containing the ${JWS_HTTPS_CERTIFICATE} file used for serving secure content.",
@@ -214,31 +214,6 @@
             }
         },
         {
-            "kind": "Service",
-            "apiVersion": "v1",
-            "spec": {
-                "ports": [
-                    {
-                        "port": 8443,
-                        "targetPort": 8443
-                    }
-                ],
-                "selector": {
-                    "deploymentConfig": "${APPLICATION_NAME}"
-                }
-            },
-            "metadata": {
-                "name": "secure-${APPLICATION_NAME}",
-                "labels": {
-                    "application": "${APPLICATION_NAME}"
-                },
-                "annotations": {
-                    "description": "The web server's https port.",
-                    "service.alpha.openshift.io/dependencies": "[{\"name\": \"${APPLICATION_NAME}-tomcat-itau${APPLICATION_NAME}-tomcat-itau\", \"kind\": \"Service\"}]"
-                }
-            }
-        },
-        {
             "kind": "Route",
             "apiVersion": "v1",
             "id": "${APPLICATION_NAME}-http",
@@ -255,29 +230,6 @@
                 "host": "${HOSTNAME_HTTP}",
                 "to": {
                     "name": "${APPLICATION_NAME}"
-                }
-            }
-        },
-        {
-            "kind": "Route",
-            "apiVersion": "v1",
-            "id": "${APPLICATION_NAME}-https",
-            "metadata": {
-                "name": "secure-${APPLICATION_NAME}",
-                "labels": {
-                    "application": "${APPLICATION_NAME}"
-                },
-                "annotations": {
-                    "description": "Route for application's https service."
-                }
-            },
-            "spec": {
-                "host": "${HOSTNAME_HTTPS}",
-                "to": {
-                    "name": "secure-${APPLICATION_NAME}"
-                },
-                "tls": {
-                    "termination": "passthrough"
                 }
             }
         },
@@ -326,7 +278,7 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "namespace": "proyecto-itau",
-                            "name": "itau-jws-tomcat3-custom:1.0.1"
+                            "name": "itau-jws-tomcat7-custom:1.0.1"
                         }
                     }
                 },
@@ -427,11 +379,6 @@
                                     {
                                         "name": "http",
                                         "containerPort": 8080,
-                                        "protocol": "TCP"
-                                    },
-                                    {
-                                        "name": "https",
-                                        "containerPort": 8443,
                                         "protocol": "TCP"
                                     }
                                 ],
