@@ -50,9 +50,7 @@
               username="${DB_USERNAME}" 
               password="${DB_PASSWORD}"
               url="${DB_URL_CONECTION}"
-              driverClassName="${DRIVER_CLASS_NAME}"
-              initialSize="${DB_MIN_POOL_SIZE}"
-              maxActive="${DB_MAX_POOL_SIZE}" />
+              driverClassName="${DRIVER_CLASS_NAME}" />
                
   </GlobalNamingResources>
 
