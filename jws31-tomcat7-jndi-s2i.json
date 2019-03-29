@@ -10,10 +10,10 @@
             "version": "1.4.17",
             "openshift.io/display-name": "Itau tomcat7 jndi s2i"
         },
-        "name": "itau-tomcat7-jndi-s2i"
+        "name": "itau-tomcat7-jndi-s2i-2"
     },
     "labels": {
-        "template": "itau-tomcat7-jndi-s2i",
+        "template": "itau-tomcat7-jndi-s2i-2",
         "xpaas": "1.4.17"
     },
     "message": "A new JWS application for Apache Tomcat 7 (using ) has been created in your project. The username/password for administering your JWS is ${JWS_ADMIN_USERNAME}/${JWS_ADMIN_PASSWORD}. For accessing the PostgreSQL database \"${DB_DATABASE}\" use the credentials ${DB_USERNAME}/${DB_PASSWORD}. Please be sure to create the secret named \"${JWS_HTTPS_SECRET}\" containing the ${JWS_HTTPS_CERTIFICATE} file used for serving secure content.",
