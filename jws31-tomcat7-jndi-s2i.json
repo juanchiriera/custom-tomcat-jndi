@@ -75,27 +75,6 @@
             "required": true
         },
         {
-            "displayName": "Certificate Name",
-            "description": "The name of the certificate file within the secret",
-            "name": "JWS_HTTPS_CERTIFICATE",
-            "value": "server.crt",
-            "required": false
-        },
-        {
-            "displayName": "Certificate Key Name",
-            "description": "The name of the certificate key file within the secret",
-            "name": "JWS_HTTPS_CERTIFICATE_KEY",
-            "value": "server.key",
-            "required": false
-        },
-        {
-            "displayName": "Certificate Password",
-            "description": "The certificate password",
-            "name": "JWS_HTTPS_CERTIFICATE_PASSWORD",
-            "value": "",
-            "required": false
-        },
-        {
             "displayName": "Datasource Minimum Pool Size",
             "description": "Sets xa-pool/min-pool-size for the configured datasource.",
             "name": "DB_MIN_POOL_SIZE",
