@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/jboss-webserver-3/webserver31-tomcat7-openshift:1.2
+FROM registry.access.redhat.com/jboss-webserver-3/jboss-webserver30-tomcat8-openshift:1.3
 
 
 #Copy jars SqlServer Drivers
